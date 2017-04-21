@@ -6,14 +6,14 @@ public class Move : MonoBehaviour {
     Vector3 zForce = new Vector3(0f, 0f, 0.3f);
     Vector3 currentPos;
     Vector3 startPos = new Vector3(0f, 0.5f, 22f);
+    float speed = 0.001f;
 
     float z;
 
     // Use this for initialization
     void Start () {
-        startPos = new Vector3(Random.Range(-15, 15), 0.5f, 22f);
+        startPos = new Vector3(Random.Range(-47, 47), 0.5f, 22f);
     }
-
 	// Update is called once per frame
 	void Update () {
         z = GameObject.Find("Cube").transform.position.z;
@@ -21,16 +21,16 @@ public class Move : MonoBehaviour {
         if (z == -19)
         {
             currentPos = gameObject.transform.position;
-            if (currentPos.z > -19)
+            if (currentPos.z > -18.5)
             {
                 gameObject.transform.position += -zForce;
                 // gameObject.GetComponent<Rigidbody>().AddForce(-zForce);
             }
-            else if (currentPos.z <= -19)
+            else if (currentPos.z <= -18.5)
             {
-                startPos = new Vector3(Random.Range(-15, 15), 0.5f, 22f);
+                startPos = new Vector3(Random.Range(-47, 47), 0.5f, 22f);
                 gameObject.transform.position = startPos;
-                zForce.z += 0.001f;
+                zForce.z += speed;
             }
         }
     }

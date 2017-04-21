@@ -35,17 +35,29 @@ public class TiltPhone : MonoBehaviour {
         {
             Vector3 movement = new Vector3(Input.acceleration.x, 0.0f, 0.0f);
             //GetComponent<Rigidbody>().velocity = movement * speed;
-            gameObject.transform.Translate(movement * speed);
+            if (gameObject.transform.position.x <= 47 && gameObject.transform.position.x >= -47)
+            {
+                gameObject.transform.Translate(movement * speed);
 
-            if (Input.GetKey(KeyCode.D))
-            {
-                moveX.x = 0.5f;
-                gameObject.transform.Translate(moveX * speed);
+                if (Input.GetKey(KeyCode.D))
+                {
+                    moveX.x = 0.5f;
+                    gameObject.transform.Translate(moveX * speed);
+                }
+                else if (Input.GetKey(KeyCode.A))
+                {
+                    moveX.x = -0.5f;
+                    gameObject.transform.Translate(moveX * speed);
+                }
             }
-            else if (Input.GetKey(KeyCode.A))
+
+            if (gameObject.transform.position.x > 47)
             {
-                moveX.x = -0.5f;
-                gameObject.transform.Translate(moveX * speed);
+                gameObject.transform.position = new Vector3(47, gameObject.transform.position.y, gameObject.transform.position.z);
+            }
+            else if (gameObject.transform.position.x < -47)
+            {
+                gameObject.transform.position = new Vector3(-47, gameObject.transform.position.y, gameObject.transform.position.z);
             }
         }
 
