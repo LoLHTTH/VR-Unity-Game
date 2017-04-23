@@ -67,7 +67,8 @@ public class TiltPhone : MonoBehaviour {
         GUIStyle guiStyle = new GUIStyle(); //create a new variable
         guiStyle.fontSize = 35; //change the font size       
 
-        GUI.Label(new Rect(0, 0, 250, 20), "Score: " + (score).ToString() + "\nR to restart", guiStyle);
+        GUI.Label(new Rect(0, 0, 250, 20), "Score: " + (score).ToString(), guiStyle);
+        //GUI.Label(new Rect(0, 0, 250, 20), "Score: " + (score).ToString() + "\nR to restart", guiStyle);
 
         if (!alive)
         {

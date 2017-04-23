@@ -5,8 +5,6 @@ public class Move : MonoBehaviour {
 
     Vector3 zForce = new Vector3(0f, 0f, 0.3f);
     Vector3 currentPos;
-    Vector3 startPos = new Vector3(0f, 0.5f, 22f);
-    float speed = 0.001f;
 
     float z;
 

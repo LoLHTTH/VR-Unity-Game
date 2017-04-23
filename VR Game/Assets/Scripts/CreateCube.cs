@@ -11,37 +11,17 @@ public class CreateCube : MonoBehaviour
     float timer = 0;
     float spawnTime = 100;
     float z;
-    int path = 1;
+    int path = 0;
     bool changeSpawnTime = true;
 
     public UnityEngine.Object snowBallObject;
     public Vector3 snowBallPos;
     float snowBallTimer = 0;
-    int snowCount = 0;
 
     // Use this for initialization
     void Start()
     {
-        //STRAIGHT LINE
-        for (int i = 0; i < 30; i++)
-        {
-            cubePosition = new Vector3(0, 0.5f, 22 + i);
-            Instantiate(cubeObject, cubePosition, Quaternion.identity);
-            cubePosition = new Vector3(-12, 0.5f, 22 + i);
-            Instantiate(cubeObject, cubePosition, Quaternion.identity);
-        }
 
-        // WALL OF OBSTACLES
-        for (int i = 0; i < 47; i++)
-        {
-            if (i > 0)
-            {
-                cubePosition = new Vector3(i, 0.5f, 22);
-                Instantiate(cubeObject, cubePosition, Quaternion.identity);
-                cubePosition = new Vector3(-i - 12, 0.5f, 22);
-                Instantiate(cubeObject, cubePosition, Quaternion.identity);
-            }
-        }
     }
     // Update is called once per frame
     void Update()
@@ -54,7 +34,14 @@ public class CreateCube : MonoBehaviour
             if (timer >= spawnTime) // TIMER TO MAKE NEW PATH
             {
                 timer = 0;
-                if (path == 1)
+                if (path == 0)
+                {
+                    changeSpawnTime = true;
+                    path++;
+                    StraightLine();
+                    WallOfObstacles();
+                }
+                else if (path == 1)
                 {
                     path++;
                     DiagonalPath();
@@ -89,11 +76,17 @@ public class CreateCube : MonoBehaviour
                     cubePosition = new Vector3(Random.Range(-47, 47), 0.5f, 22f);
                     Instantiate(cubeObject, cubePosition, Quaternion.identity);
 
-                    if (snowBallTimer >= 15 && snowCount < 30)
+                    if (snowBallTimer >= 5)
                     {
-                        snowCount++;
                         snowBallPos = new Vector3(Random.Range(-47, 47), Random.Range(10, 20), 22f);
                         Instantiate(snowBallObject, snowBallPos, Quaternion.identity);
+                    }
+                    path++;
+
+                    if (path == 100)
+                    {
+                        path = 0;
+                        spawnTime = 100;
                     }
                 }
             }
@@ -130,6 +123,20 @@ public class CreateCube : MonoBehaviour
             Instantiate(cubeObject, cubePosition, Quaternion.identity);
             cubePosition = new Vector3(-12, 0.5f, 22 + i);
             Instantiate(cubeObject, cubePosition, Quaternion.identity);
+        }
+    }
+    void WallOfObstacles()
+    {
+        // WALL OF OBSTACLES
+        for (int i = 0; i < 50; i++)
+        {
+            if (i > 0)
+            {
+                cubePosition = new Vector3(i, 0.5f, 22);
+                Instantiate(cubeObject, cubePosition, Quaternion.identity);
+                cubePosition = new Vector3(-i - 12, 0.5f, 22);
+                Instantiate(cubeObject, cubePosition, Quaternion.identity);
+            }
         }
     }
 }
