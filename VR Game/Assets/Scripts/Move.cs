@@ -12,10 +12,11 @@ public class Move : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        startPos = new Vector3(Random.Range(-47, 47), 0.5f, 22f);
+        //        cubePosition = new Vector3(Random.Range(-47, 47), 0.5f, 22f);
+        //        Instantiate(newObject, cubePosition, Quaternion.identity);
     }
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame
+    void Update () {
         z = GameObject.Find("Cube").transform.position.z;
 
         if (z == -19)
@@ -28,9 +29,7 @@ public class Move : MonoBehaviour {
             }
             else if (currentPos.z <= -18.5)
             {
-                startPos = new Vector3(Random.Range(-47, 47), 0.5f, 22f);
-                gameObject.transform.position = startPos;
-                zForce.z += speed;
+                Destroy(gameObject);
             }
         }
     }

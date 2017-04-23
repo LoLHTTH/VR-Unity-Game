@@ -24,8 +24,6 @@ GameObject:
   - component: {fileID: 23341550846534592}
   - component: {fileID: 114352757687785568}
   - component: {fileID: 54102802391655860}
-  - component: {fileID: 114932302256314612}
-  - component: {fileID: 114872505987622598}
   m_Layer: 0
   m_Name: EvilCube
   m_TagString: Untagged
@@ -123,29 +121,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8fb48dda9bdc61478fb04263545af25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114872505987622598
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1796638350909186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 397c991576399fc40a34a824cb134c26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  newObject: {fileID: 1658148999803506, guid: 9a9f7d831530e7d41b2d6f672c84b2f6, type: 2}
-  cubePosition: {x: 0, y: 0, z: 0}
---- !u!114 &114932302256314612
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1796638350909186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd4f7b015ab32264b96b425e2db282fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  newObject: {fileID: 1547725081939010}
-  cubePosition: {x: 0, y: 0, z: 0}
