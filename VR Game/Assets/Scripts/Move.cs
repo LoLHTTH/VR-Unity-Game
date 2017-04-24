@@ -20,12 +20,12 @@ public class Move : MonoBehaviour {
         if (z == -19)
         {
             currentPos = gameObject.transform.position;
-            if (currentPos.z > -18.5)
+            if (currentPos.z > -20)
             {
                 gameObject.transform.position += -zForce;
                 // gameObject.GetComponent<Rigidbody>().AddForce(-zForce);
             }
-            else if (currentPos.z <= -18.5)
+            else if (currentPos.z <= -20)
             {
                 Destroy(gameObject);
             }
