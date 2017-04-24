@@ -41,12 +41,12 @@ public class TiltPhone : MonoBehaviour {
 
                 if (Input.GetKey(KeyCode.D))
                 {
-                    moveX.x = 0.5f;
+                    moveX.x = 0.35f;
                     gameObject.transform.Translate(moveX * speed);
                 }
                 else if (Input.GetKey(KeyCode.A))
                 {
-                    moveX.x = -0.5f;
+                    moveX.x = -0.35f;
                     gameObject.transform.Translate(moveX * speed);
                 }
             }
